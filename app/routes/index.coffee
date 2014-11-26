@@ -6,4 +6,6 @@ router.get('/', (req, res) ->
   res.render('index', title: 'Express')
 )
 
+require('./projects')(router)
+
 module.exports = router

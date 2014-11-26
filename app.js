@@ -1,3 +1,4 @@
+require('coffee-script/register');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,8 +6,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./app/routes/index');
-var users = require('./app/routes/users');
+var routes = require('./app/routes/index.coffee');
+var users = require('./app/routes/users.coffee');
 
 var app = express();
 

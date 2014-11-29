@@ -3,6 +3,13 @@ var nodemon = require('gulp-nodemon');
 var coffee = require('gulp-coffee');
 var gutil = require('gulp-util');
 var sass = require('gulp-sass');
+var jade = require('gulp-jade');
+
+gulp.task('templates', function() {
+  gulp.src('./app/assets/templates/**/*.jade')
+    .pipe(jade({client: true}))
+    .pipe(gulp.dest('./public/templates'))
+});
 
 gulp.task('coffee', function() {
   gulp.src('./app/assets/javascripts/**/*.coffee')
@@ -16,7 +23,7 @@ gulp.task('scss', function() {
     .pipe(gulp.dest('./public/stylesheets/'));
 });
 
-gulp.task('build', ['coffee', 'scss']);
+gulp.task('build', ['templates', 'coffee', 'scss']);
 
 gulp.task('develop', function() {
   nodemon({

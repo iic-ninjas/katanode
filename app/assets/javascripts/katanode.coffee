@@ -1,1 +1,3 @@
-class window.Katanode extends Backbone.Marionette.Application
+window.Katanode = new Backbone.Marionette.Application()
+
+

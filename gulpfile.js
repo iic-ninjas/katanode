@@ -4,11 +4,26 @@ var coffee = require('gulp-coffee');
 var gutil = require('gulp-util');
 var sass = require('gulp-sass');
 var jade = require('gulp-jade');
+var concat = require('gulp-concat');
+var insert = require('gulp-insert');
+var tap = require('gulp-tap');
+
+var insertToJST = function(file) {
+  var templateName = file.relative.replace(/\.js/, '');
+  file.contents = Buffer.concat([
+    new Buffer("window.JST['" + templateName + "'] = "),
+    file.contents,
+    new Buffer(';')
+  ]);
+};
 
 gulp.task('templates', function() {
   gulp.src('./app/assets/templates/**/*.jade')
     .pipe(jade({client: true}))
-    .pipe(gulp.dest('./public/templates'))
+    .pipe(tap(insertToJST))
+    .pipe(concat('templates.js'))
+    .pipe(insert.prepend('window.JST = {};\n'))
+    .pipe(gulp.dest('./public'))
 });
 
 gulp.task('coffee', function() {

@@ -1,0 +1,11 @@
+.well
+  form.add-project-form(action='/projects' method='post' role='form')
+    label.text-uppercase.text-left
+    .form-group
+      input.form-control.project-title(placeholder='Title')
+    .form-group
+      input.form-control.project-subtitle(placeholder='Subtitle')
+      .input-group-btn
+        button.btn.btn-blue.btn-create-project(type='submit')
+          i.fa.fa-plus-circle
+          Create

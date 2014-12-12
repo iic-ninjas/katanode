@@ -1,3 +1,3 @@
-window.Katanode = new Backbone.Marionette.Application()
+window.Katanode = new Backbone.Marionette.Application(container: '.container')
 
 

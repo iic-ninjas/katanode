@@ -1,6 +1,6 @@
 extends ../layout
 
 block content
-  ul
+  ul.list-group
     - each project in projects
-      li= project.get('title')
+      li.list-group-item= project.get('title')

@@ -40,7 +40,7 @@ gulp.task('scss', function() {
 
 gulp.task('build', ['templates', 'coffee', 'scss']);
 
-gulp.task('develop', function() {
+gulp.task('develop', ['build'], function() {
   nodemon({
     script: './bin/www'
   });

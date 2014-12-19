@@ -49,8 +49,16 @@ gulp.task('scss', function() {
 
 gulp.task('build', ['clean', 'templates', 'coffee', 'scss']);
 
-gulp.task('develop', ['build'], function() {
+gulp.task('watch', function() {
+  gulp.watch('app/assets/javascripts/**/*', ['build']);
+  gulp.watch('app/assets/stylesheets/**/*', ['build']);
+  gulp.watch('app/assets/templates/**/*', ['build']);
+});
+
+gulp.task('server', function() {
   nodemon({
     script: './bin/www'
   });
 });
+
+gulp.task('develop', ['build', 'watch', 'server']);

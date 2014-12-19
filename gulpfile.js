@@ -7,6 +7,7 @@ var jade = require('gulp-jade');
 var concat = require('gulp-concat');
 var insert = require('gulp-insert');
 var tap = require('gulp-tap');
+var del = require('del');
 
 var insertToJST = function(file) {
   var templateName = file.relative.replace(/\.js/, '');
@@ -16,6 +17,14 @@ var insertToJST = function(file) {
     new Buffer(';')
   ]);
 };
+
+gulp.task('clean', function() {
+  del([
+    'public/javascripts',
+    'public/stylesheets',
+    'public/templates.js'
+  ]);
+});
 
 gulp.task('templates', function() {
   gulp.src('./app/assets/templates/**/*.jade')
@@ -38,7 +47,7 @@ gulp.task('scss', function() {
     .pipe(gulp.dest('./public/stylesheets/'));
 });
 
-gulp.task('build', ['templates', 'coffee', 'scss']);
+gulp.task('build', ['clean', 'templates', 'coffee', 'scss']);
 
 gulp.task('develop', ['build'], function() {
   nodemon({

@@ -7,6 +7,3 @@ class Katanode.Project extends Backbone.Model
     status: null
     created_at: null
     updated_at: null
-
-
-

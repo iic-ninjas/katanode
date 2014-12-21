@@ -1,11 +1,9 @@
-.well
-  form.add-project-form(action='/projects' method='post' role='form')
-    label.text-uppercase.text-left
+.panel-heading
+  h3.panel-title.text-uppercase Add a project
+.panel-body
+  form(role='form')
     .form-group
-      input.form-control.project-title(placeholder='Title')
+      input.form-control(type='text' placeholder='Title')
     .form-group
-      input.form-control.project-subtitle(placeholder='Subtitle')
-      .input-group-btn
-        button.btn.btn-blue.btn-create-project(type='submit')
-          i.fa.fa-plus-circle
-          Create
+      input.form-control(type='text' placeholder='Subtitle')
+    button.btn.btn-success(type='submit') Create

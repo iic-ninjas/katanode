@@ -10,7 +10,7 @@ Backbone.Marionette.Renderer.render = (templateName, data) ->
 
 Katanode.addInitializer((options) ->
   projects = new Katanode.Projects(options.projects)
-  Katanode.mainRegion.show(new Katanode.ProjectsView(collection: projects))
+  Katanode.mainRegion.show(new Katanode.PageLayout(projects: projects))
 )
 
 

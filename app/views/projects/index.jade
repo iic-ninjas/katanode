@@ -4,14 +4,7 @@ block content
   .page-content
 
 block bottom_javascripts
-  script(type='text/javascript' src='/javascripts/katanode.js')
-  script(type='text/javascript' src='/javascripts/models/project.js')
-  script(type='text/javascript' src='/javascripts/models/projects.js')
-  script(type='text/javascript' src='/javascripts/views/project_view.js')
-  script(type='text/javascript' src='/javascripts/views/projects_view.js')
-  script(type='text/javascript' src='/javascripts/views/add_project_view.js')
-  script(type='text/javascript' src='/javascripts/views/sidebar_view.js')
-  script(type='text/javascript' src='/javascripts/views/page_layout.js')
+  script(type='text/javascript' src='/assets/katanode.js')
 
   script(type='text/javascript').
     Katanode.start({projects: !{JSON.stringify(projects)}});

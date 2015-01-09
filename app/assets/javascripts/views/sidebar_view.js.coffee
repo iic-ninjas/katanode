@@ -6,4 +6,4 @@ class Katanode.SidebarView extends Backbone.Marionette.LayoutView
     addProject: '.add-project'
 
   onShow: ->
-    @getRegion('addProject').show(new Katanode.AddProjectView())
+    @getRegion('addProject').show(new Katanode.AddProjectView(projects: @options.projects))

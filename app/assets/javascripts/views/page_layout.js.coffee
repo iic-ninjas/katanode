@@ -7,4 +7,4 @@ class Katanode.PageLayout extends Backbone.Marionette.LayoutView
 
   onShow: ->
     @getRegion('main').show(new Katanode.ProjectsView(collection: @options.projects))
-    @getRegion('sidebar').show(new Katanode.SidebarView())
+    @getRegion('sidebar').show(new Katanode.SidebarView(projects: @options.projects))

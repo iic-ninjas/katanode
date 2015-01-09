@@ -10,7 +10,7 @@ module.exports = class ProjectsController
     )
 
   @create: (req, res) ->
-    debug('Creating project with the following attributes: %s', req.body)
+    debug('Creating project with the following attributes: %s', JSON.stringify(req.body))
     new User(id: 1).projects().fetch().then((projects) ->
       projects.create(title: req.body.title, subtitle: req.body.subtitle).then((project) ->
         debug('Created project with id %d successfully', project.get('id'))

@@ -14,7 +14,9 @@ module.exports = class ProjectsController
     new User(id: 1).projects().fetch().then((projects) ->
       projects.create(title: req.body.title, subtitle: req.body.subtitle).then((project) ->
         debug('Created project with id %d successfully', project.get('id'))
-        res.json(project.toJSON())
+        project.fetch(withRelated: ['creator']).then((project) ->
+          res.json(project.toJSON())
+        )
       ).catch((error) ->
         console.error(error)
         res.status(500).json(error: error)

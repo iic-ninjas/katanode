@@ -2,6 +2,22 @@ body {
   background: #b3e5fc;
 }
 
+.page-content {
+  padding-top: 10px;
+}
+
+.project-row {
+  .avatar-container {
+    float: left;
+    margin-right: 10px;
+  }
+  .project-details {
+    p {
+      margin: 0;
+    }
+  }
+}
+
 .navbar-default {
   background: #03a9f4;
   border-color: #0392d3;

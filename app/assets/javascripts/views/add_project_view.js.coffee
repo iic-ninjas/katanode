@@ -13,5 +13,12 @@ class Katanode.AddProjectView extends Backbone.Marionette.ItemView
     event.preventDefault()
     title = @ui.inputTitle.val()
     subtitle = @ui.inputSubtitle.val()
-    @options.projects.create({title: title, subtitle: subtitle}, {wait: true})
+    @options.projects.create({title: title, subtitle: subtitle},
+      {
+        wait: true
+        success: =>
+          @ui.inputTitle.val('')
+          @ui.inputSubtitle.val('')
+      }
+    )
 

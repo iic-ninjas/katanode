@@ -1,7 +1,10 @@
-nav.navbar.navbar-default(role="navigation")
+nav.navbar.navbar-default.header(role="navigation")
   .container
     .navbar-header
       a.navbar-brand.uppercase(href='/projects')
         img(src='/assets/logo-small.png', width=23, height=13)
         span.brand-title.text-uppercase Katalog
+    ul.nav.navbar-nav.navbar-right
+      li
+        a.github-sign-in(href='/auth/github') Sign in with GitHub
 

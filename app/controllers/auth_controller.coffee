@@ -1,5 +1,4 @@
 User = requireApp('app/models/user')
-session = require('express-session')
 
 module.exports = class AuthController
 
@@ -11,7 +10,9 @@ module.exports = class AuthController
         new User(req.user).save()
 
       promise.then((savedUser) ->
-        session.signedInUserId = savedUser.get('id')
-        res.redirect('/')
+        req.session.signedInUserId = savedUser.get('id')
+        req.session.save((err) ->
+          res.redirect('/')
+        )
       )
     )

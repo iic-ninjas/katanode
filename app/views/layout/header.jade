@@ -6,5 +6,8 @@ nav.navbar.navbar-default.header(role="navigation")
         span.brand-title.text-uppercase Katalog
     ul.nav.navbar-nav.navbar-right
       li
-        a.github-sign-in(href='/auth/github') Sign in with GitHub
+        if currentUser
+          span Hello #{currentUser.get('username')}
+        else
+          a.github-sign-in(href='/auth/github') Sign in with GitHub
 

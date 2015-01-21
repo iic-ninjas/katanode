@@ -5,6 +5,8 @@ cookieParser = require('cookie-parser')
 bodyParser = require('body-parser')
 routes = require('../app/routes/index.coffee')
 mincer = require('./mincer')
+passport = require('passport')
+githubStrategy = require('./github_strategy')
 express = require('express')
 
 module.exports = (app) ->
@@ -16,3 +18,4 @@ module.exports = (app) ->
   app.use('/', routes)
   app.use(express.static(path.join(__dirname, 'public')))
   app.use('/assets', mincer)
+  app.use(passport.initialize())

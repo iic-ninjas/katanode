@@ -1,4 +1,4 @@
-session = require('session')
+session = require('express-session')
 Session = requireApp('app/models/session')
 BookshelfStore = require('connect-bookshelf')(session)
 

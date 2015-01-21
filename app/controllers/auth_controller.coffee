@@ -11,8 +11,6 @@ module.exports = class AuthController
 
       promise.then((savedUser) ->
         req.session.signedInUserId = savedUser.get('id')
-        req.session.save((err) ->
-          res.redirect('/')
-        )
+        res.redirect('/')
       )
     )

@@ -5,9 +5,16 @@ nav.navbar.navbar-default.header(role="navigation")
         img(src='/assets/logo-small.png', width=23, height=13)
         span.brand-title.text-uppercase Katalog
     ul.nav.navbar-nav.navbar-right
-      li
-        if currentUser
-          span Hello #{currentUser.get('username')}
-        else
+      if currentUser
+        li.dropdown
+          a.dropdown-toggle(href='#' data-toggle='dropdown')
+            = currentUser.get('username')
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href='#') Sign out
+      else
+        li
           a.github-sign-in(href='/auth/github') Sign in with GitHub
+
 

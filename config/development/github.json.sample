@@ -1,0 +1,4 @@
+{
+  "clientID": "your GitHub app client id",
+  "clientSecret": "your GitHub app client secret"
+}

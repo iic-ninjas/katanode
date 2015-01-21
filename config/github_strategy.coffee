@@ -1,8 +1,10 @@
 GithubStrategy = require('passport-github').Strategy
+nconf = require('nconf')
+
 strategy = new GithubStrategy(
   {
-    clientID: process.env.GITHUB_CLIENT_ID
-    clientSecret: process.env.GITHUB_CLIENT_SECRET
+    clientID: nconf.get('github:clientID')
+    clientSecret: nconf.get('github:clientSecret')
   },
   (accessToken, refreshToken, profile, done) ->
     done(null, profile)

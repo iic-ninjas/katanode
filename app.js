@@ -1,4 +1,5 @@
 require('coffee-script/register');
+var nconf = require('nconf');
 
 var path = require('path');
 GLOBAL.APP_ROOT = __dirname;
@@ -9,6 +10,8 @@ GLOBAL.requireApp = function(path) {
 
 var express = require('express');
 var app = express();
+
+nconf.file('github', 'config/' + app.get('env') + '/github.json');
 require('./config/middleware')(app);
 
 // view engine setup
